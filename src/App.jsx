@@ -102,16 +102,18 @@ function App() {
   return (
     <div className={`app-container ${weather ? 'expanded' : ''}`}>
       <h1>Weather App</h1>
-      <input
-        type="text"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        onKeyDown={handleKeyPress}
-        placeholder="Enter city name"
-      />
-      <button onClick={getWeather} disabled={loading}>
-        {loading ? 'Loading...' : 'Get Weather'}
-      </button>
+      <div className="search-container">
+        <input
+          type="text"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          onKeyDown={handleKeyPress}
+          placeholder="Enter city name"
+        />
+        <button onClick={getWeather} disabled={loading}>
+          {loading ? 'Loading...' : 'Get Weather'}
+        </button>
+      </div>
 
       {error && <p className="error">{error}</p>}
 
